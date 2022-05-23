@@ -19,24 +19,16 @@ public class MyRunnable implements Runnable {
     public void run() {
         int reportPeriod = Main.REPORT_PERIOD;
         while (reportPeriod > 0) {
-            reportPeriod--;
-            System.out.println(Thread.currentThread().getName() + " открылся");
-            int value = random.nextInt(21) * 100 + 100;
             try {
+                reportPeriod--;
+                System.out.println(Thread.currentThread().getName() + " открылся");
+                int value = random.nextInt(21) * 100 + 100;
                 Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.out.println(Thread.currentThread().getName() + " закрылся");
-            try {
+                System.out.println(Thread.currentThread().getName() + " закрылся");
                 Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.out.println(Thread.currentThread().getName() + " отправил отчет о выручке в размере " +
-                    value + " в налоговую");
-            calculation.calcul(value);
-            try {
+                System.out.println(Thread.currentThread().getName() + " отправил отчет о выручке в размере " +
+                        value + " в налоговую");
+                calculation.calcul(value);
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
